@@ -7,20 +7,29 @@ defineProps<{
 </script>
 
 <template>
-  <div class="fixed top-2 sm:top-4 mx-auto left-1/2 transform -translate-x-1/2 z-10">
+  <header class="flex items-center justify-between gap-4 border-b border-default pb-4">
+    <ULink
+      to="/"
+      class="flex items-center gap-2.5 text-sm font-medium text-highlighted"
+    >
+      <img
+        :src="'/ProfilePic.png'"
+        alt="Norbiros"
+        width="28"
+        height="28"
+        class="size-7 rounded-lg bg-elevated object-cover object-top ring-1 ring-default"
+      >
+      <span>norbiros.dev</span>
+    </ULink>
+
     <UNavigationMenu
       :items="links"
       variant="link"
       color="neutral"
-      class="bg-muted/80 backdrop-blur-sm rounded-full px-2 sm:px-4 border border-muted/50 shadow-lg shadow-neutral-950/5"
       :ui="{
-        link: 'px-2 py-1',
+        link: 'px-2.5 py-1 text-sm',
         linkLeadingIcon: 'hidden'
       }"
-    >
-      <template #list-trailing>
-        <ColorModeButton />
-      </template>
-    </UNavigationMenu>
-  </div>
+    />
+  </header>
 </template>

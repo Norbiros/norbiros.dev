@@ -50,14 +50,45 @@ defineOgImage('Portfolio', { title, description })
         container: 'pt-0!'
       }"
     >
-      <UBlogPosts orientation="vertical">
+      <div
+        v-if="!posts?.length"
+        class="flex flex-col items-center justify-center gap-5 rounded-xl border border-dashed border-default px-6 py-16 text-center sm:py-24"
+      >
+        <div class="flex size-12 items-center justify-center rounded-full bg-elevated ring-1 ring-default">
+          <UIcon
+            name="i-lucide-pen-line"
+            class="size-5 text-muted"
+          />
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <p class="text-highlighted text-lg font-medium">
+            No posts yet
+          </p>
+          <p class="mx-auto max-w-sm text-sm text-muted">
+            The first one is being written. Check back soon.
+          </p>
+        </div>
+        <UButton
+          to="https://github.com/Norbiros"
+          target="_blank"
+          icon="i-simple-icons-github"
+          label="Follow along on GitHub"
+          color="neutral"
+          variant="subtle"
+          size="sm"
+        />
+      </div>
+      <UBlogPosts
+        v-else
+        orientation="vertical"
+      >
         <Motion
           v-for="(post, index) in posts"
           :key="index"
           :initial="{ opacity: 0, transform: 'translateY(10px)' }"
           :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-          :transition="{ delay: 0.2 * index }"
-          :in-view-options="{ once: true }"
+          :transition="{ delay: Math.min(index * 0.06, 0.24), duration: 0.45, ease: [0.16, 1, 0.3, 1] }"
+          :in-view-options="{ once: true, margin: '0px 0px -10% 0px' }"
         >
           <UBlogPost
             variant="naked"

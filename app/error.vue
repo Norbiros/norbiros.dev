@@ -39,29 +39,23 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
 </script>
 
 <template>
-  <div>
-    <AppHeader :links="navLinks" />
-
-    <UMain>
-      <UContainer>
+  <UApp>
+    <NuxtLayout name="default">
+      <UMain>
         <UPage>
           <UError :error="error" />
         </UPage>
-      </UContainer>
-    </UMain>
-
-    <AppFooter />
+      </UMain>
+    </NuxtLayout>
 
     <ClientOnly>
       <LazyUContentSearch
         :files="files"
-        shortcut="meta_k"
         :navigation="navigation"
+        shortcut="meta_k"
         :links="navLinks"
         :fuse="{ resultLimit: 42 }"
       />
     </ClientOnly>
-
-    <UToaster />
-  </div>
+  </UApp>
 </template>

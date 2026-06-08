@@ -5,6 +5,14 @@ const { data: page } = await useAsyncData(route.path, () =>
   queryCollection('blog').path(route.path).first()
 )
 if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+
+// Raw markdown source for the "Copy for LLM" button. Resolved at
+// prerender time so the text is baked into the static payload.
+const slug = computed(() => route.path.split('/').filter(Boolean).pop())
+const { data: rawMarkdown } = await useAsyncData(`${route.path}-raw`, () =>
+  $fetch('/api/raw-markdown', { query: { slug: slug.value } })
+)
+
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
   queryCollectionItemSurroundings('blog', route.path, {
     fields: ['description']
@@ -21,15 +29,14 @@ useSeoMeta({
   ogTitle: title
 })
 
-if (page.value.image) {
-  useSeoMeta({ ogImage: page.value.image })
-} else {
-  defineOgImage('Portfolio', {
-    title,
-    description,
-    headline: 'Blog'
-  })
-}
+// Generate a branded OG card for every post so the social image is always
+// defined and on-brand. The post's own cover image is still used as the
+// in-page hero; this is purely the share/preview image.
+defineOgImage('Portfolio', {
+  title,
+  description,
+  headline: 'Blog'
+})
 
 const articleLink = computed(() => `${window?.location}`)
 
@@ -43,7 +50,7 @@ const formatDate = (dateString: string) => {
 </script>
 
 <template>
-  <UMain class="mt-20 px-2">
+  <UMain class="mt-8 px-2">
     <UContainer class="relative min-h-screen">
       <UPage v-if="page">
         <ULink
@@ -95,9 +102,19 @@ const formatDate = (dateString: string) => {
 
           <div class="flex items-center justify-end gap-2 text-sm text-muted">
             <UButton
+              v-if="rawMarkdown"
               size="sm"
               variant="link"
               color="neutral"
+              icon="i-lucide-sparkles"
+              label="Copy for LLM"
+              @click="copyToClipboard(rawMarkdown, 'Markdown copied — paste it into your LLM')"
+            />
+            <UButton
+              size="sm"
+              variant="link"
+              color="neutral"
+              icon="i-lucide-link"
               label="Copy link"
               @click="copyToClipboard(articleLink, 'Article link copied to clipboard')"
             />

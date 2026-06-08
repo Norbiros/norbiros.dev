@@ -16,6 +16,16 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  site: {
+    url: 'https://norbiros.dev',
+    name: 'Norbiros'
+  },
+
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark'
+  },
+
   content: {
     experimental: {
       sqliteConnector: 'native'
