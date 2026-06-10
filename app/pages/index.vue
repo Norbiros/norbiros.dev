@@ -72,9 +72,14 @@ const socials = [{
       >
         <div class="flex flex-col gap-1">
           <p class="flex items-baseline gap-x-2 text-lg text-default sm:text-xl">
-            <UTooltip text="Note: Their resemblance to Claude's thinking spinner does not constitute evidence of vibecoding :-/.">
+            <UTooltip
+              text="Note: Their resemblance to Claude's thinking spinner does not constitute evidence of vibecoding :-/."
+            >
               <ClientOnly>
-                <RandomWord :words="zeryaWords" class="cursor-help" />
+                <RandomWord
+                  :words="zeryaWords"
+                  class="cursor-help"
+                />
                 <template #fallback>
                   <span class="cursor-help text-primary">Cooking</span>
                 </template>

@@ -6,8 +6,8 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
-    'nuxt-og-image',
-    'motion-v/nuxt'
+    'motion-v/nuxt',
+    '@nuxtjs/seo'
   ],
 
   devtools: {
@@ -18,7 +18,9 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://norbiros.dev',
-    name: 'Norbiros'
+    name: 'Norbiros',
+    description: 'Open-source developer — Nuxt, Rust, and Minecraft mods.',
+    defaultLocale: 'en'
   },
 
   colorMode: {
@@ -52,7 +54,19 @@ export default defineNuxtConfig({
     }
   },
 
-  ogImage: {
-    zeroRuntime: true
+  ogImage: false,
+
+  schemaOrg: {
+    identity: {
+      type: 'Person',
+      name: 'Norbert Szeremet',
+      alternateName: 'Norbiros',
+      url: 'https://norbiros.dev',
+      sameAs: [
+        'https://github.com/Norbiros',
+        'https://x.com/norbiros_dev',
+        'https://discordapp.com/users/770620808644919307'
+      ]
+    }
   }
 })

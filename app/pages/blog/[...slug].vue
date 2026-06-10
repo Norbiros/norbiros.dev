@@ -29,15 +29,6 @@ useSeoMeta({
   ogTitle: title
 })
 
-// Generate a branded OG card for every post so the social image is always
-// defined and on-brand. The post's own cover image is still used as the
-// in-page hero; this is purely the share/preview image.
-defineOgImage('Portfolio', {
-  title,
-  description,
-  headline: 'Blog'
-})
-
 const articleLink = computed(() => `${window?.location}`)
 
 const formatDate = (dateString: string) => {
