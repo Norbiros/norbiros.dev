@@ -21,10 +21,10 @@ export default defineAppConfig({
       'target': '_blank',
       'aria-label': 'Norbiros on GitHub'
     }, {
-      'icon': 'i-simple-icons-linkedin',
-      'to': 'https://www.linkedin.com/in/norbert-szeremet/',
+      'icon': 'i-simple-icons-discord',
+      'to': 'https://discordapp.com/users/770620808644919307',
       'target': '_blank',
-      'aria-label': 'Norbiros on LinkedIn'
+      'aria-label': 'Norbiros on Discord'
     }, {
       'icon': 'i-simple-icons-x',
       'to': 'https://x.com/norbiros_dev',

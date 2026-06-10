@@ -9,13 +9,8 @@ useHead({ titleTemplate: null })
 useSeoMeta({
   title: 'Norbiros',
   ogTitle: 'Norbiros',
-  description: 'The personal corner of Norbiros — a Polish developer into Rust, the Nuxt ecosystem and Linux. This site is temporary; the blog is where things are happening.',
-  ogDescription: 'The personal corner of Norbiros — a Polish developer into Rust, the Nuxt ecosystem and Linux.'
-})
-
-defineOgImage('Portfolio', {
-  title: 'Norbiros',
-  description: 'Rust, Nuxt & Linux — notes from whatever I\'m building.'
+  description: 'Open-source developer — Nuxt, Rust, and Minecraft mods.',
+  ogDescription: 'Open-source developer — Nuxt, Rust, and Minecraft mods.'
 })
 
 // `zeryaWords` is auto-imported from ~/utils/zeryaWords.ts — RandomWord picks one
@@ -25,9 +20,9 @@ const socials = [{
   icon: 'i-simple-icons-github',
   to: 'https://github.com/Norbiros'
 }, {
-  label: 'LinkedIn',
-  icon: 'i-simple-icons-linkedin',
-  to: 'https://www.linkedin.com/in/norbert-szeremet/'
+  label: 'Discord',
+  icon: 'i-simple-icons-discord',
+  to: 'https://discordapp.com/users/770620808644919307'
 }, {
   label: 'X',
   icon: 'i-simple-icons-x',
@@ -77,12 +72,14 @@ const socials = [{
       >
         <div class="flex flex-col gap-1">
           <p class="flex items-baseline gap-x-2 text-lg text-default sm:text-xl">
-            <ClientOnly>
-              <RandomWord :words="zeryaWords" />
-              <template #fallback>
-                <span class="text-primary">Cooking</span>
-              </template>
-            </ClientOnly>
+            <UTooltip text="Note: Their resemblance to Claude's thinking spinner does not constitute evidence of vibecoding :-/.">
+              <ClientOnly>
+                <RandomWord :words="zeryaWords" class="cursor-help" />
+                <template #fallback>
+                  <span class="cursor-help text-primary">Cooking</span>
+                </template>
+              </ClientOnly>
+            </UTooltip>
             <span class="text-muted">at</span>
             <ULink
               to="https://zerya.dev"
