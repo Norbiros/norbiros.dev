@@ -25,8 +25,22 @@ const description = page.value?.seo?.description || page.value?.description
 useSeoMeta({
   title,
   description,
+
+  ogTitle: title,
   ogDescription: description,
-  ogTitle: title
+  ogType: 'article',
+  ogImage: page.value.image,
+
+  twitterCard: 'summary_large_image',
+  twitterTitle: title,
+  twitterDescription: description,
+  twitterImage: page.value.image,
+  twitterCreator: '@norbiros_dev',
+
+  articlePublishedTime: page.value.date,
+  articleAuthor: page.value.author?.to
+    ? [page.value.author.to]
+    : undefined
 })
 
 const articleLink = computed(() => `${window?.location}`)
