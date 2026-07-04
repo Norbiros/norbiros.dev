@@ -37,13 +37,15 @@ const [{ data: navigation }, { data: files }] = await Promise.all([
     transform: data => data.flat()
   })
 ])
+
+const route = useRoute()
 </script>
 
 <template>
   <UApp>
     <NuxtLayout>
       <UMain class="relative">
-        <NuxtPage />
+        <NuxtPage :page-key="route.fullPath" />
       </UMain>
     </NuxtLayout>
 

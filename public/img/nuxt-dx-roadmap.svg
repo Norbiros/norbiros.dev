@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" font-family="'Public Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+  <!-- Shareable roadmap for the "native toolchain under Nuxt" post.
+       1200x675 (16:9) — reads on a blog and as a Twitter/X card.
+       One title, per-column colour coding. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e0f14"/>
+      <stop offset="1" stop-color="#0a0a0d"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="1199" height="674" fill="none" stroke="#ffffff" stroke-opacity="0.06"/>
+
+  <!-- Header (single title) -->
+  <text x="72" y="116" fill="#f5f5f6" font-size="46" font-weight="700" letter-spacing="-0.5">The roadmap to better Nuxt DX</text>
+  <text x="72" y="156" fill="#9a9aa2" font-size="19">Same Nuxt DX, rebuilt on native foundations, ordered by when you'll feel it.</text>
+
+  <line x1="72" y1="200" x2="1128" y2="200" stroke="#ffffff" stroke-opacity="0.09"/>
+
+  <!-- Column dividers -->
+  <line x1="417" y1="236" x2="417" y2="576" stroke="#ffffff" stroke-opacity="0.07"/>
+  <line x1="782" y1="236" x2="782" y2="576" stroke="#ffffff" stroke-opacity="0.07"/>
+
+  <!-- ============ SHIPPING (emerald) ============ -->
+  <rect x="72" y="248" width="24" height="3" rx="1.5" fill="#34d399"/>
+  <text x="72" y="284" fill="#34d399" font-size="17" font-weight="700" letter-spacing="2.5">SHIPPING</text>
+  <text x="196" y="284" fill="#6f6f77" font-size="14">stable today</text>
+
+  <circle cx="78" cy="339" r="4.5" fill="#34d399"/>
+  <text x="94" y="344" fill="#ededf0" font-size="19" font-weight="600">Vite 8 + Rolldown</text>
+  <text x="94" y="364" fill="#7c7c85" font-size="13.5">bundler &amp; dev server</text>
+
+  <!-- ============ SOON (amber) ============ -->
+  <rect x="437" y="248" width="24" height="3" rx="1.5" fill="#f5b642"/>
+  <text x="437" y="284" fill="#f5b642" font-size="17" font-weight="700" letter-spacing="2.5">SOON</text>
+  <text x="503" y="284" fill="#6f6f77" font-size="14">landing across 2026</text>
+
+  <circle cx="443" cy="339" r="4.5" fill="#f5b642"/>
+  <text x="459" y="344" fill="#ededf0" font-size="19" font-weight="600">oxlint &amp; oxfmt</text>
+  <text x="459" y="364" fill="#7c7c85" font-size="13.5">linting &amp; formatting</text>
+
+  <circle cx="443" cy="401" r="4.5" fill="#f5b642"/>
+  <text x="459" y="406" fill="#ededf0" font-size="19" font-weight="600">TypeScript 7</text>
+  <text x="459" y="426" fill="#7c7c85" font-size="13.5">type-checking, in Go</text>
+
+  <circle cx="443" cy="463" r="4.5" fill="#f5b642"/>
+  <text x="459" y="468" fill="#ededf0" font-size="19" font-weight="600">Nitro v3</text>
+  <text x="459" y="488" fill="#7c7c85" font-size="13.5">Nuxt's server engine</text>
+
+  <circle cx="443" cy="525" r="4.5" fill="#f5b642"/>
+  <text x="459" y="530" fill="#ededf0" font-size="19" font-weight="600">pnpm v12</text>
+  <text x="459" y="550" fill="#7c7c85" font-size="13.5">native Rust install engine</text>
+
+  <!-- ============ LATER (sky) ============ -->
+  <rect x="802" y="248" width="24" height="3" rx="1.5" fill="#56b6e6"/>
+  <text x="802" y="284" fill="#56b6e6" font-size="17" font-weight="700" letter-spacing="2.5">LATER</text>
+  <text x="878" y="284" fill="#6f6f77" font-size="14">still experimental</text>
+
+  <circle cx="808" cy="339" r="4.5" fill="#56b6e6"/>
+  <text x="824" y="344" fill="#ededf0" font-size="19" font-weight="600">Bundled Dev Mode</text>
+  <text x="824" y="364" fill="#7c7c85" font-size="13.5">dev speed on huge apps</text>
+
+  <circle cx="808" cy="401" r="4.5" fill="#56b6e6"/>
+  <text x="824" y="406" fill="#ededf0" font-size="19" font-weight="600">Vize</text>
+  <text x="824" y="426" fill="#7c7c85" font-size="13.5">one Rust core for Vue</text>
+
+  <!-- Footer: attribution only -->
+  <line x1="72" y1="606" x2="1128" y2="606" stroke="#ffffff" stroke-opacity="0.09"/>
+  <text x="1128" y="636" fill="#7c7c85" font-size="14" font-weight="600" text-anchor="end">norbiros.dev</text>
+</svg>

@@ -43,53 +43,64 @@ const formatDate = (dateString: string) => {
 <template>
   <UMain class="mt-8 px-2">
     <UContainer class="relative min-h-screen">
+      <nav
+        v-if="page?.body?.toc?.links?.length"
+        class="post-toc not-prose"
+      >
+        <UContentToc
+          highlight
+          title="On this page"
+          :links="page.body.toc.links"
+          :ui="{ root: 'bg-transparent ring-0 backdrop-blur-none' }"
+        />
+      </nav>
+
       <UPage v-if="page">
         <ULink
           to="/blog"
           class="text-sm flex items-center gap-1"
         >
-          <UIcon name="lucide:chevron-left" />
+          <UIcon name="i-lucide-chevron-left" />
           Blog
         </ULink>
-        <div class="flex flex-col gap-3 mt-8">
-          <div class="flex text-xs text-muted items-center justify-center gap-2">
+        <header class="mt-8 flex flex-col gap-5">
+          <div class="flex items-center gap-2 text-xs font-medium tracking-wide text-dimmed uppercase">
             <span v-if="page.date">
               {{ formatDate(page.date) }}
             </span>
-            <span v-if="page.date && page.minRead">
-              -
-            </span>
+            <span
+              v-if="page.date && page.minRead"
+              class="size-1 rounded-full bg-dimmed"
+            />
             <span v-if="page.minRead">
-              {{ page.minRead }} MIN READ
+              {{ page.minRead }} min read
             </span>
           </div>
-          <NuxtImg
-            v-if="page.image"
-            :src="page.image"
-            :alt="page.title"
-            class="rounded-lg w-full h-[300px] object-cover object-center"
-          />
-          <h1 class="text-4xl text-center font-medium max-w-3xl mx-auto mt-4">
+          <h1 class="max-w-4xl text-4xl leading-[1.05] font-bold tracking-tight text-balance text-highlighted sm:text-5xl">
             {{ page.title }}
           </h1>
-          <p class="text-muted text-center max-w-2xl mx-auto">
+          <p class="max-w-2xl text-xl leading-snug tracking-tight text-muted text-pretty sm:text-2xl">
             {{ page.description }}
           </p>
-          <div class="flex items-center justify-center gap-2 mt-2">
+          <div class="mt-1 flex items-center gap-2">
             <UUser
-              orientation="vertical"
               color="neutral"
-              variant="outline"
-              class="justify-center items-center text-center"
+              variant="ghost"
               v-bind="page.author"
+              :ui="{ root: 'gap-2.5' }"
             />
           </div>
-        </div>
-        <UPageBody class="max-w-3xl mx-auto">
-          <ContentRenderer
-            v-if="page.body"
-            :value="page"
-          />
+        </header>
+
+        <USeparator class="my-8" />
+
+        <UPageBody>
+          <div class="article-prose">
+            <ContentRenderer
+              v-if="page.body"
+              :value="page"
+            />
+          </div>
 
           <div class="flex items-center justify-end gap-2 text-sm text-muted">
             <UButton
