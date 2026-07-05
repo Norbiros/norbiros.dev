@@ -20,7 +20,7 @@
         TL;DR
       </span>
     </div>
-    <div class="text-[0.95rem] leading-relaxed text-muted [&>p]:my-0 [&>p+p]:mt-2 [&_strong]:font-semibold [&_strong]:text-highlighted [&_a]:border-b [&_a]:border-transparent [&_a]:text-primary [&_a]:transition-colors [&_a:hover]:border-primary [&_a:focus-visible]:border-primary">
+    <div class="text-sm leading-relaxed text-muted [&>p]:my-0 [&>p+p]:mt-2 [&_strong]:font-semibold [&_strong]:text-highlighted [&_a]:border-b [&_a]:border-transparent [&_a]:text-primary [&_a]:transition-colors [&_a:hover]:border-primary [&_a:focus-visible]:border-primary">
       <slot />
     </div>
   </aside>

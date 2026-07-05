@@ -32,14 +32,13 @@ withDefaults(defineProps<{
         wide ? 'p-2 sm:p-3' : 'p-4 sm:p-6'
       ]"
     >
-      <img
+      <ProseImg
         :src="src"
         :alt="alt"
         loading="lazy"
         decoding="async"
-        class="h-auto w-full rounded"
-        :class="wide ? '' : 'max-w-xl'"
-      >
+        :class="['h-auto rounded', wide ? 'w-full' : 'w-full max-w-xl']"
+      />
     </div>
     <figcaption class="px-1 text-sm leading-relaxed text-muted">
       <slot />

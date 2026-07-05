@@ -35,7 +35,7 @@ defineProps<{
         :key="item.tool"
         class="flex flex-col gap-1 bg-elevated/30 px-4 py-5 sm:px-5 sm:py-6"
       >
-        <span class="text-[1.6rem] leading-none font-bold tracking-tight whitespace-nowrap text-highlighted tabular-nums sm:text-3xl">
+        <span class="text-2xl leading-none font-bold tracking-tight whitespace-nowrap text-highlighted tabular-nums sm:text-3xl">
           {{ item.value.replace('×', '') }}<span class="text-primary">×</span>
         </span>
         <span class="mt-1 text-sm font-medium text-default">{{ item.tool }}</span>
