@@ -100,7 +100,7 @@ That parser number matters more than it looks: parsing sits underneath almost ev
 The catch for us is Vue. A Vue SFC isn't just a `.ts` file — a linter has to understand how `<script setup>` relates to `<template>`, or rules like "unused variable" get the wrong answer. Oxc has an [RFC for embedded framework support](https://github.com/oxc-project/oxc/discussions/21936) and a [tracking issue for language plugins](https://github.com/oxc-project/oxc/issues/23207), but the JS plugin system is not yet implemented, so Vue developers can't lean on it yet.
 
 ::side-note
-This is the piece I'm most impatient for — oxlint is the foundation of a Nuxt linting module I'm building, [nustack/lint](https://npmx.dev/package/@nustackjs/lint) alongside multiple related oxlint plugins for Nuxt ecosystem.
+This is the piece I'm most impatient for — oxlint is the foundation of a Nuxt linting module I'm building, [nustack/lint](https://github.com/Zerya-Dev/nustack/tree/master/modules/lint) alongside multiple related oxlint plugins for Nuxt ecosystem.
 ::
 
 Still, near-instant linting and formatting changes the feedback loop entirely. It enables deeper rules, such as type-aware mode powered by [tsgolint](https://github.com/oxc-project/tsgolint), which allows for better and faster linting — especially important when AI agents run these checks over and over again.
